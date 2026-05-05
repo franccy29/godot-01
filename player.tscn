@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b4x7aikajyghw"]
+
+[ext_resource type="Script" uid="uid://opgsixk0tpvs" path="res://character_body_3d.gd" id="1_4flbx"]
+
+[node name="Player" type="Node" unique_id=2130746434]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1739433968]
+script = ExtResource("1_4flbx")
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="CharacterBody3D" unique_id=1921937946]
+physics_interpolation_mode = 1
+polygon = PackedVector2Array(1, 1)
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/CollisionPolygon3D" unique_id=102924485]
+transform = Transform3D(1, 0, 0, 0, 0.98203564, 0.18869574, 0, -0.18869574, 0.98203564, 0, 1.4423198, -0.20571995)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CharacterBody3D/CollisionPolygon3D" unique_id=274295366]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7563355, 0)
+use_collision = true

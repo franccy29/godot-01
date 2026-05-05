@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://bptobxfkwwyv4"]
+
+[ext_resource type="PackedScene" uid="uid://b4x7aikajyghw" path="res://player.tscn" id="1_ig7tw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7dm0k"]
+vertex_color_is_srgb = true
+albedo_color = Color(0.6015965, 0.99802047, 0.61715466, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ig7tw"]
+vertex_color_is_srgb = true
+albedo_color = Color(0.72513884, 0.52385116, 0.115329586, 1)
+
+[node name="Main" type="Node3D" unique_id=599143525]
+
+[node name="Floor" type="CSGBox3D" parent="." unique_id=1856130497]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7848511, -0.45214844, -3.2631836)
+use_collision = true
+size = Vector3(11.16394, 0.095703125, 15.436523)
+material = SubResource("StandardMaterial3D_7dm0k")
+
+[node name="House" type="Node" parent="." unique_id=13984754]
+
+[node name="Wall" type="CSGBox3D" parent="House" unique_id=959681587]
+transform = Transform3D(-0.0299668, 0, -0.9995509, 0, 1, 0, 0.9995509, 0, -0.0299668, -0.012116551, 0.14534396, -6.5497704)
+use_collision = true
+size = Vector3(0.1743164, 3, 4.2989807)
+material = SubResource("StandardMaterial3D_ig7tw")
+
+[node name="Wall2" type="CSGBox3D" parent="House" unique_id=616874788]
+transform = Transform3D(0.01001778, 0, -0.9999498, 0, 1, 0, 0.9999498, 0, 0.01001778, -0.063259065, 0.64534396, 0.36172634)
+use_collision = true
+size = Vector3(0.1743164, 2, 5)
+material = SubResource("StandardMaterial3D_ig7tw")
+
+[node name="Door Hole" type="CSGBox3D" parent="House/Wall2" unique_id=1834263697]
+transform = Transform3D(0.01001778, 0, 0.9999498, 0, 1, 0, -0.9999498, 0, 0.01001778, -0.11601217, -0.2461186, 0.21317734)
+operation = 2
+size = Vector3(1.5551758, 1.9395142, 0.46827343)
+
+[node name="Wall3" type="CSGBox3D" parent="House" unique_id=1909371443]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9070584, 0.64534396, -3.1294546)
+use_collision = true
+size = Vector3(0.1743164, 2, 7.201233)
+material = SubResource("StandardMaterial3D_ig7tw")
+
+[node name="Wall4" type="CSGBox3D" parent="House" unique_id=448315300]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.955763, 0.5002634, -3.1294546)
+use_collision = true
+size = Vector3(0.1743164, 1.7098389, 7.201233)
+material = SubResource("StandardMaterial3D_ig7tw")
+
+[node name="Light" type="OmniLight3D" parent="House" unique_id=2039099885]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0852313, -4)
+shadow_enabled = true
+distance_fade_enabled = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="House" unique_id=148925958]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6972046, 2, -2.9351807)
+size = Vector3(8.011597, 1, 6.8703613)
+
+[node name="Player" parent="." unique_id=2130746434 instance=ExtResource("1_ig7tw")]
