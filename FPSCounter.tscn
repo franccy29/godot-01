@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://wtsyfufasoqd"]
+
+[ext_resource type="Script" uid="uid://ch0phyg5qqu3w" path="res://FPSCounterScript.gd" id="1_6ppto"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6ppto"]
+
+[node name="Node" type="Node" unique_id=773546680]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1108554699]
+follow_viewport_enabled = true
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=560091353]
+anchors_preset = -1
+anchor_right = 1.028
+anchor_bottom = 1.052
+offset_left = 283.0
+offset_top = 115.0
+offset_right = 200.74402
+offset_bottom = 100.303955
+theme_override_font_sizes/font_size = 30
+text = "TEST"
+label_settings = SubResource("LabelSettings_6ppto")
+uppercase = true
+max_lines_visible = 1
+visible_characters = 3
+visible_ratio = 0.764
+text_direction = 1
+script = ExtResource("1_6ppto")

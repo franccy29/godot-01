@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bptobxfkwwyv4"]
 
-[ext_resource type="PackedScene" uid="uid://b4x7aikajyghw" path="res://player.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://opgsixk0tpvs" path="res://character_body_3d.gd" id="1_ig7tw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7dm0k"]
 vertex_color_is_srgb = true
@@ -9,6 +9,8 @@ albedo_color = Color(0.6015965, 0.99802047, 0.61715466, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ig7tw"]
 vertex_color_is_srgb = true
 albedo_color = Color(0.72513884, 0.52385116, 0.115329586, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ig7tw"]
 
 [node name="Main" type="Node3D" unique_id=599143525]
 
@@ -28,11 +30,11 @@ material = SubResource("StandardMaterial3D_ig7tw")
 
 [node name="Wall2" type="CSGBox3D" parent="House" unique_id=616874788]
 transform = Transform3D(0.01001778, 0, -0.9999498, 0, 1, 0, 0.9999498, 0, 0.01001778, -0.063259065, 0.64534396, 0.36172634)
-use_collision = true
 size = Vector3(0.1743164, 2, 5)
 material = SubResource("StandardMaterial3D_ig7tw")
 
 [node name="Door Hole" type="CSGBox3D" parent="House/Wall2" unique_id=1834263697]
+physics_interpolation_mode = 2
 transform = Transform3D(0.01001778, 0, 0.9999498, 0, 1, 0, -0.9999498, 0, 0.01001778, -0.11601217, -0.2461186, 0.21317734)
 operation = 2
 size = Vector3(1.5551758, 1.9395142, 0.46827343)
@@ -58,4 +60,14 @@ distance_fade_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6972046, 2, -2.9351807)
 size = Vector3(8.011597, 1, 6.8703613)
 
-[node name="Player" parent="." unique_id=2130746434 instance=ExtResource("1_ig7tw")]
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1260489753]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4651338, 0)
+disable_mode = 1
+platform_wall_layers = 1
+script = ExtResource("1_ig7tw")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D" unique_id=561915344]
+transform = Transform3D(1, 0, 0, 0, 0.98203564, 0.18869574, 0, -0.18869574, 0.98203564, 0, -0.1306777, -0.20571995)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=2057897142]
+shape = SubResource("CapsuleShape3D_ig7tw")
